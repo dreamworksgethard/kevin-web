@@ -639,20 +639,15 @@ a {
   color: var(--gold);
 }
 
-.ca-row-token {
-  margin: 0 auto 1.5rem;
-  width: 100%;
-  max-width: none;
-}
-
-.ca-actions {
+.token-ctas {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 0.45rem;
+  justify-content: center;
+  gap: 0.65rem;
+  margin: 0 auto 1.5rem;
 }
 
-.ca-row-token .btn-sm {
+.token-ctas .btn-sm {
   padding: 0.45rem 0.75rem;
   font-size: 0.62rem;
 }

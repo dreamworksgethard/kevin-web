@@ -3,31 +3,6 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const nav = document.querySelector(".nav");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-document.querySelectorAll(".btn-copy").forEach((copyBtn) => {
-  copyBtn.addEventListener("click", async () => {
-    const row = copyBtn.closest(".ca-row");
-    const contract = row?.querySelector(".contract-address");
-    if (!contract) return;
-
-    const address = contract.textContent.trim();
-    try {
-      await navigator.clipboard.writeText(address);
-      copyBtn.textContent = "Copied";
-      copyBtn.classList.add("copied");
-      setTimeout(() => {
-        copyBtn.textContent = "Copy";
-        copyBtn.classList.remove("copied");
-      }, 1800);
-    } catch {
-      const range = document.createRange();
-      range.selectNodeContents(contract);
-      const selection = window.getSelection();
-      selection.removeAllRanges();
-      selection.addRange(range);
-    }
-  });
-});
-
 if (navToggle && mobileMenu) {
   const setOpen = (open) => {
     mobileMenu.hidden = !open;
@@ -78,8 +53,7 @@ const revealPlan = [
   { selector: ".about-block", variant: "reveal-up", stagger: true },
   { selector: ".video-block", variant: "reveal-scale", delay: 1 },
   { selector: ".stat", variant: "reveal-up", stagger: true },
-  { selector: ".ca-row-token", variant: "reveal-up", delay: 1 },
-  { selector: ".dex-embed", variant: "reveal-scale", delay: 1 },
+  { selector: ".token-ctas", variant: "reveal-up", delay: 1 },
   { selector: ".token-visual", variant: "reveal-scale", delay: 1 },
   { selector: ".token-note", variant: "reveal-up", delay: 2 },
   { selector: ".token-links", variant: "reveal-up", delay: 3 },
